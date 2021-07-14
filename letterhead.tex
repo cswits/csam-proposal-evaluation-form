@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+
+\usepackage{wits-letterhead}
+\PassOptionsToPackage{pdftex}{hyperref}
+\usepackage{xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+\def\labelline#1#2{\lbl{#1}\vbox{\hbox{\TextField[name=#1,width=#2,bordercolor=white]{\null}}\kern2pt\hrule}} 
+
+\newdimen\longline
+\longline=\textwidth\advance\longline-6cm
+
+\def\LayoutTextField#1#2{#2} % override default in hyperref
+
+\def\lbl#1{\hbox to 4cm{#1\hfill\strut}}%
+\def\labelline#1#2{\lbl{#1}\vbox{\hbox{\TextField[name=#1,width=#2]{\null}}\kern2pt\hrule}}
+
+\def\q#1{\hbox to \hsize{\labelline{#1}{\longline}}\vskip1.4ex}
+
+\renewcommand\LayoutCheckField[2]{#1#2} % <------------
+\fboxsep=0pt % <------------
+
+
+\begin{document}
+
+\department{SCHOOL OF COMPUTER SCIENCE \\ AND APPLIED MATHEMATICS}  
+\subject{Hello world}
+\location{Office UG05, TWK Mathematical Sciences Building, Braamfontein Campus West, 1 Jan Smuts Avenue, Braamfontein 2000, South Africa}
+\email{steven.james@wits.ac.za}
+\telephone{+27 11 717 6157}
+% \fax{+27 11 555 5555}  
+% \website{www.cnn.com}
+\signature{}  % imagefile for signature
+
+\thispagestyle{firstpage}
+
+\witsletterhead
+
+
+\medskip
+
+\begin{center}
+    \large{\textbf{Proposal Evaluation Form}}
+\end{center}
+
+\bigskip
+
+
+  \begin{Form}
+    \q{Candidate:}
+    \q{Supervisor(s):}
+    \q{Date:}
+    \q{Proposal Title:}
+    % \q{}
+   \end{Form}
+   
+   \subsubsection*{Panel Members}
+   
+    \begin{Form}
+    \q{1)}
+    \q{2)}
+    \q{3)}
+    \q{4)}
+   \end{Form}
+
+   \subsubsection*{Decision}
+    
+        \begin{Form}
+    \fbox{\CheckBox[name=approved,width=10pt,height=10pt,bordercolor=0 0 0]{\null}} ~~~~~Approved \\
+    \fbox{\CheckBox[name=minor,width=10pt,height=10pt,bordercolor=0 0 0]{\null}} ~~~~~Minor revision to the approval of the supervisor \\
+    \fbox{\CheckBox[name=major1,width=10pt,height=10pt,bordercolor=0 0 0]{\null}} ~~~~~Major revision to the approval of the panel members \\
+    \fbox{\CheckBox[name=major2,width=10pt,height=10pt,bordercolor=0 0 0]{\null}} ~~~~~Major revisions. Proposal and defence must be repeated \\
+    \fbox{\CheckBox[name=fail,width=10pt,height=10pt,bordercolor=0 0 0]{\null}} ~~~~~Fail \\
+
+
+   \end{Form}
+
+
+
+\pagebreak
+
+   \subsubsection*{Comments}
+
+\begin{Form}
+
+\TextField[name=Comment,multiline=true,height=40\baselineskip,
+  width=\linewidth,borderwidth=1,bordercolor=0 0 0]{}
+
+
+\end{Form}
+
+
+% \par\noindent
+% \tikz[overlay,remember picture]\coordinate (image-start);
+% \par
+% \vfill
+% \null\hfill
+% \tikz [overlay,remember picture] \draw (0,0) rectangle ([yshift=\ht\strutbox-\fboxsep]image-start);
+
+
+
+\end{document}
